@@ -1,0 +1,173 @@
+/* Heitor Moura — portfolio
+   Plain on purpose: white page, black text, thin rules.
+   Everything is set in Courier Prime, a Courier designed for screens,
+   with Courier New as the fallback. */
+
+:root {
+  --ink: #111;
+  --muted: #555;
+  --rule: #111;
+  --bg: #fff;
+  --mono: "Courier Prime", "Courier New", Courier, monospace;
+  --body: var(--mono);
+  --width: 46rem;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 112.5%; } /* 18px base */
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.65;
+}
+
+/* Skip link for keyboard and screen-reader users */
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--bg);
+  padding: .5rem 1rem;
+  z-index: 10;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+.wrap {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header + navigation */
+header.site {
+  border-bottom: 2px solid var(--rule);
+  padding: 1.5rem 0 1rem;
+}
+.name {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+.tagline {
+  font-family: var(--mono);
+  margin: .15rem 0 1rem;
+  color: var(--muted);
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.5rem;
+  font-family: var(--mono);
+}
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+  padding: .35rem 0;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover { border-bottom-color: var(--ink); }
+nav a[aria-current="page"] { border-bottom-color: var(--ink); font-weight: 700; }
+
+/* Content */
+main { padding: 2rem 0 3rem; }
+
+h1, h2, h3 {
+  font-family: var(--mono);
+  line-height: 1.2;
+  font-weight: 700;
+}
+h1 { font-size: 1.9rem; margin: 0 0 1rem; }
+h2 {
+  font-size: 1.3rem;
+  margin: 2.5rem 0 .75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+h3 { font-size: 1.05rem; margin: 1.5rem 0 .25rem; }
+
+p, li { max-width: 70ch; }
+ul { padding-left: 1.25rem; }
+li { margin-bottom: .35rem; }
+
+a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+.meta {
+  font-family: var(--mono);
+  color: var(--muted);
+  margin: 0 0 .5rem;
+  font-size: .95rem;
+}
+
+.lead { font-size: 1.15rem; }
+
+/* Simple bordered button, e.g. "Download PDF" */
+.button {
+  display: inline-block;
+  font-family: var(--mono);
+  border: 2px solid var(--ink);
+  padding: .5rem 1rem;
+  text-decoration: none;
+  margin: .25rem .5rem .25rem 0;
+}
+.button:hover { background: var(--ink); color: var(--bg); }
+
+/* Entries on Work Samples / Credentials pages */
+.entry {
+  border-left: 2px solid var(--ink);
+  padding: .25rem 0 .25rem 1rem;
+  margin: 1.5rem 0;
+}
+.entry h3 { margin-top: 0; }
+
+/* Two-column label/value list */
+dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: .35rem 1.25rem; }
+dl.facts dt { font-family: var(--mono); font-weight: 700; }
+dl.facts dd { margin: 0; }
+
+/* Optional profile photo */
+.photo { width: 160px; height: 160px; object-fit: cover; border: 1px solid var(--rule); }
+
+/* PLACEHOLDERS — delete each one once you've filled it in.
+   Dashed boxes make it easy to spot anything you've missed before submitting. */
+.todo {
+  border: 1px dashed var(--muted);
+  padding: .1rem .4rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .9rem;
+}
+div.todo { display: block; padding: .75rem 1rem; margin: 1rem 0; }
+
+footer.site {
+  border-top: 2px solid var(--rule);
+  padding: 1.25rem 0 2rem;
+  font-family: var(--mono);
+  font-size: .95rem;
+}
+footer.site p { margin: .2rem 0; }
+
+@media (max-width: 600px) {
+  html { font-size: 106.25%; } /* 17px */
+  h1 { font-size: 1.6rem; }
+  dl.facts { grid-template-columns: 1fr; }
+  dl.facts dd { margin-bottom: .5rem; }
+}
+
+@media print {
+  nav, .skip, .button, .todo { display: none; }
+  header.site, footer.site { border-color: #000; }
+}
